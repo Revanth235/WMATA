@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2023 Ridership Visualizations</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        .chart-container {
+            width: 1000px;
+            height: 800px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Monthly Ridership in 2023</h1>
+    <div class="chart-container">
+        <canvas id="monthlyChart2023"></canvas>
+    </div>
+
+    <h1>Day of the Week Ridership in 2023</h1>
+    <div class="chart-container">
+        <canvas id="weeklyChart2023"></canvas>
+    </div>
+
+    <script>
+        // Visualization 1: Monthly Ridership in 2023
+        const monthlyData2023 = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            datasets: [
+                {
+                    label: '2023',
+                    data: [15870150, 15290338, 19144881, 18348802, 19651124, 19332567, 19239483, 19355631, 19959602, 21305366, 19161740, 17596586],
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                }
+            ],
+        };
+
+        const monthlyConfig2023 = {
+            type: 'bar',
+            data: monthlyData2023,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Monthly Ridership in 2023'
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: false,
+                        ticks: {
+                            font: {
+                                size: 8
+                            }
+                        }
+                    },
+                    y: {
+                        stacked: false,
+                        ticks: {
+                            font: {
+                                size: 8
+                            }
+                        }
+                    }
+                }
+            },
+        };
+
+        const monthlyChart2023 = new Chart(
+            document.getElementById('monthlyChart2023'),
+            monthlyConfig2023
+        );
+
+        // Visualization 2: Day of the Week Ridership in 2023
+        const weeklyData2023 = {
+            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            datasets: [
+                {
+                    label: '2023',
+                    data: [32451285, 38284134, 38557585, 37597286, 34411496, 23937855, 19016629],
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                }
+            ],
+        };
+
+        const weeklyConfig2023 = {
+            type: 'bar',
+            data: weeklyData2023,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Day of the Week Ridership in 2023'
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: false,
+                        ticks: {
+                            font: {
+                                size: 8
+                            }
+                        }
+                    },
+                    y: {
+                        stacked: false,
+                        ticks: {
+                            font: {
+                                size: 8
+                            }
+                        }
+                    }
+                }
+            },
+        };
+
+        const weeklyChart2023 = new Chart(
+            document.getElementById('weeklyChart2023'),
+            weeklyConfig2023
+        );
+    </script>
+</body>
+</html>
