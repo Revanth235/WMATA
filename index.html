@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>WMATA Ridership Dashboard</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="home.css">
+    </head>
+    <body>
+        <header>Metro Momentum: Visualizing How DC Moves</header>
+        <img src="image.png" alt="">
+        <p>Every day, thousands of people commute through the Washinton Metro system. WMATA with its network of trains and buses, connects communities, reduces traffic congestion, and provides a sustainable alternative for millions of commuters.
+            Operated by the Washington Metropolitan Area Transit Authority (WMATA), this extensive network of trains and buses plays a crucial role in connecting diverse communities across not just Washington D.C., but Virginia and Maryland too. 
+            This dashboard explores how ridership trends have changed over time. The dashboard mainly features two interactive visualizations that show how the number of riders has evolved throughout the years and the flow of riders through each station of the Washington Metro system.
+            By offering an alternative way to commute, WMATA helps reduce traffic congestion. Additionally, the transit system supports environmental sustainability by reducing carbon emissions and promoting the use of public transport. For millions of commuters, WMATA is not just a convenience but a vital lifeline that enhances mobility, accessibility, and quality of life.
+        </p>
+        <h5>What is this about?</h5>
+        <p> Over the years, the number of riders and their travel patterns have evolved, reflecting shifts in population, urban development, and commuting trends. 
+            Understanding these usage patterns offers invaluable insights into how the Metro system serves its riders, highlighting areas of success and opportunities for growth. 
+            This blog aims to analyze historical ridership data to uncover these patterns and provide actionable insights.
+            Understanding the dynamics of ridership is essential for three primary reasons. 
+            First, identifying stations or lines with high demand or service gaps can drive improvements in transit efficiency. 
+            Second, ridership data enables better planning for expansions, maintenance, and scheduling, ensuring that resources are allocated effectively. 
+            Finally, analyzing peak usage times and popular routes provides commuter insights.
+            The dashboard created from this analysis will be beneficial to multiple stakeholders. 
+            Transit authorities can use it to make data-driven decisions to enhance services. Urban planners can identify areas requiring improvement and strategically plan upgrades.
+            Meanwhile, the general public will find it a valuable tool for accessing quick insights into Metro usage, satisfying their curiosity.
+        </p>
+        <h5>How was it done?</h5>
+        <p>The analysis makes use of interactive visualizations to explore ridership numbers troughout the years. The study focuses on addressing the following questions:
+            <ul>
+                <li>How has the usage of Metro services changed over time?</li><br>
+                <p>This question seeks to uncover trends in ridership across different years, identifying periods of growth or decline and the potential factors influencing these changes.</p>
+                <li>Do holidays affect usage?</li>
+                <p>This question seeks to unciver if holidays like Christmas affect the usage patterns at all.</p>
+                <li>What are the ridership patterns at individual stations?</li><br>
+                <p>By analyzing station-level data, this inquiry aims to reveal variations in ridership, including peak usage times and consistently high-traffic stations, offering insights into localized commuting behaviors.</p>
+                <li>What are the ridership patterns across modes (metro, bus)?</li>
+                <p>Finally, the study tries to answer the question of ridership pattern accross metro rail and bus.</p>
+            </ul> 
+            <p>These initial directions of inquiry serve as the foundation for a deeper exploration of ridership dynamics, aiming to provide actionable insights for transit authorities, urban planners, and the general public.</p>
+        </p>
+        <h6>Data Collection</h6>
+        <p>The data for this analysis was obtained from the WMATA Ridership Portal, a reliable source of historical and current ridership statistics for the Washington Metro system. The dataset includes comprehensive details about station-level ridership, allowing for an in-depth exploration of usage patterns. One particular dataset that had stationwise numbers was in a pdf format which was extracted manually and converted to csv. There were some records that had missing data especially in the stationwise ridership data. Since these records were crucial for representing the stations as nodes in the visualization, they couldn't be removed and hence were replaced with NA indicating there is no data for that station.
+            The data acquired was tested against the criteria for good data and the results are as follows.
+            <ol>
+                <li>Accuracy - The data mostly seems to refelct actual ridership figures. However, further validation is needed to check for any outliers. Since the data is collected from the Metro farebox, it can be said the data is accurate.</li>
+                <li>Completeness - The dataset appears to contain critical dimensions necessary for the analysis, such as station-level ridership numbers and temporal granularity (e.g., daily, monthly, or yearly data).</li>
+                <li>Consistency - The data is consistent since it originates from a single source. There were no duplicate entries or conflicting records present in the dataset.</li>
+                <li>Uniformity - The data seemed to be uniform since all the records followed the same format.</li>
+            </ol>
+        </p>
+        <h6>Data Analysis</h6>
+        <p>Once the dataset was cleaned and validated for accuracy, completeness, consistency, and uniformity, it was utilized to create interactive visualizations that reveal insights into Metro ridership patterns. The primary aim was to analyze station-level ridership trends and represent them in a clear, visually appealing format.
+            The main tools used were Excel to quickly read through the dataset. Python was used for the daily ridership visualization. Basic but essential libraries like pandas and plotly were used to read the data and create the visualization. For the visualization that shows ridership by stations, D3 which is a powerful JavaScript library was used.
+            These tools enable an effective and powerful way to create the visualizations. 
+        </p>
+        <h6>Results</h6>
+        <p>The interactive line chart provides an overview of ridership details from 2019 to 2024, showcasing trends and patterns across these years. Filters are available to highlight specific factors such as holidays and events that may have influenced ridership levels. By selecting the events filter, notable occurrences that impacted ridership are displayed. These include a peak in usage during the Cherry Blossom Festival in 2019, a significant drop due to COVID-19 restrictions in 2020, another decline during winter storms in January 2022, and surges in ridership associated with major political events. These insights help contextualize fluctuations in ridership within broader social and environmental events. Metro ridership typically drops during federal holidays. The graph shows that ridership did not significantly increase on Veterans Day, November 11, which fell on a Monday, and there is a noticeable decline during Thanksgiving. Also, the dashboard features a hover line that provides detailed descriptions for specific days, including ridership statistics, offering an interactive and informative way to explore the data. Bus ridership is represented in blue, while rail ridership is shown in red. In 2019, bus ridership was higher than rail ridership, but it experienced a decline during the COVID-19 pandemic in 2020. From 2020 through the end of 2022, bus usage consistently remained higher than rail usage. However, starting in 2023, there has been a notable increase in rail ridership</p>
+        <p>
+            The metro map is a force-directed graph that was done using D3 JS. It shows a map of the DC Metro with nodes and links. Nodes represent a station and can be clicked on to get a tooltip that shows ridership for every year. Up top is a slider that allows the user to move through years. 
+            Many DC Metro stations exhibit a gradual decline in ridership over the years, particularly between 2015 and 2017, reflecting broader shifts in commuting patterns or service usage. Despite this trend, central hubs like Union Station and Metro Center consistently maintain high ridership levels, driven by their strategic locations and strong connectivity to other lines and key city areas. In contrast, stations such as Rockville and Greenbelt demonstrate moderate yet steady usage, likely influenced by their role in serving residential communities. Among the various lines, the Red Line stands out as the most utilized, underscoring its importance as a primary commuter corridor within the metro system. These patterns highlight the diverse dynamics of station usage and the critical role of central and residential hubs in sustaining ridership.</p>
+        
+        <p>To view the daily ridership visualization, please click on the link. <a href="https://ridership-dashboard2.onrender.com/">Daily ridership visualization</a>.</p>
+
+            <div class="graph" style="margin-top: 20px;">
+                <h6>Interactive Visualizations</h6>
+                <iframe src="demo.html" style="width: 100%; height: 800px; border: none;"></iframe>
+            </div>
+
+            <p>The following two bar graphs shows metro rail usage for the year 2023. From the graph it is evident that October is the peak usage time and the rails are usually busy on Tuesdays and Wednesdays.</p>
+
+            <div style="margin-top: 20px;">
+                <iframe src="ridership_visualizations_2023.html" style="width: 100%; height: 800px; border: none;"></iframe>
+            </div>
+
+            <h6>Conclusion</h6>
+        <p>This project provides valuable insights into DC Metro ridership trends, offering significant benefits to various stakeholders. Transit authorities can leverage the analysis to make informed decisions on service improvements, such as optimizing schedules, allocating resources, and planning maintenance during low-ridership periods. Urban planners can identify areas where ridership is declining or increasing and use this information to prioritize upgrades, develop new infrastructure, and ensure equitable access to transit services. For the public, the project offers quick insights into usage patterns, fostering a better understanding of transit trends and potentially influencing commuting choices.</p>
+        <p>Looking ahead, there are several possible directions to expand this work. Incorporating data from recent years would provide a more comprehensive view of ridership trends, especially in light of significant events like the COVID-19 pandemic, which has had lasting effects on commuting habits. Additionally, integrating predictive models could enable ridership forecasting, helping stakeholders anticipate future demand and proactively adapt transit services to meet changing needs.
+
+            Despite its strengths, the project is not without limitations. The dataset is limited to the years 2007–2017, missing recent trends and major disruptions such as COVID-19's impact on transit. Furthermore, the lack of granular data, such as entry and exit counts or demographic information, restricts the depth of the analysis. External factors like weather or socioeconomic changes, which likely influence ridership, are also not accounted for.
+            
+            In conclusion, this project highlights the utility of data analysis in understanding transit patterns and improving urban mobility. While it provides a solid foundation, addressing its limitations and expanding its scope through additional data and predictive analytics could unlock even greater value for transit authorities, urban planners, and the public.</p>
+        <h6>Acknowledgements</h6>
+        <p>The ridership data for this analysis was obtained from the official WMATA ridership portal which provides information on rail, bus, and parking ridership. <a href="https://www.wmata.com/initiatives/ridership-portal/">WMATA Ridership Portal</a></p>
+        <p>Additionally, the idea for the interactive graph was inspired by the visualization approach by David Taylor. Their work served as a guiding example for creating effective and engaging representations of transit data. <a href="https://d3metro.github.io/">WMATA Metro Map D3</a></p>
+        </body>
+</html>
